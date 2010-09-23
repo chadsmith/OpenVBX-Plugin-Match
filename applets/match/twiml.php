@@ -3,8 +3,8 @@ $body = isset($_REQUEST['Body'])? trim($_REQUEST['Body']) : null;
 $body = strtolower($body);
 
 $invalid_option = AppletInstance::getDropZoneUrl('invalid-option');
-$keys = AppletInstance::getValue('keys[]');
-$responses = AppletInstance::getDropZoneUrl('responses[]');
+$keys = (array) AppletInstance::getValue('keys[]');
+$responses = (array) AppletInstance::getDropZoneUrl('responses[]');
 $menu_items = AppletInstance::assocKeyValueCombine($keys, $responses, 'strtolower');
 
 $response = new Response();
