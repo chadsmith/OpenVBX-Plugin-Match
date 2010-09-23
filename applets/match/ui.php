@@ -1,7 +1,7 @@
 <?php
 $defaultNumberOfChoices = 2;
-$keys = AppletInstance::getValue('keys[]', array('1' => '', '2' => '') );
-$responses = AppletInstance::getValue('responses[]');
+$keys = (array) AppletInstance::getValue('keys[]', array('1' => '', '2' => '') );
+$responses = (array) AppletInstance::getValue('responses[]');
 ?>
 
 <div class="vbx-applet match-applet">
