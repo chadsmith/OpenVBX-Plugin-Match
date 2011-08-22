@@ -9,7 +9,7 @@ $next = AppletInstance::getDropZoneUrl('invalid-option');
 $response = new Response();
 
 foreach($menu_items as $regex => $redirect)
-	if(preg_match("/" . $regex . "/i", $body)) {
+	if(!empty($regex) && preg_match("/" . $regex . "/i", $body)) {
 		$next = $redirect;
 		break;
 	}
