@@ -19,7 +19,6 @@ $(function() {
 
 	$('.regex-applet .action.remove').live('click', function() {
 		var row = $(this).closest('tr');
-		var bgColor = row.css('background-color');
 		row.animate({ backgroundColor : '#FEEEBD' }, 'fast')
 			.fadeOut('fast', function() {
 				row.remove();
