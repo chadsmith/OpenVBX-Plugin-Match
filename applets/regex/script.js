@@ -1,6 +1,12 @@
 $(function() {
 	$('.regex-applet tr.hide input').prop('disabled', true);
 
+	$('.regex-applet input.keypress').live('keyup', function(event) {
+		var row = $(this).closest('tr');
+		$('input[name^="keys"]', row).attr('name', 'keys['+$(this).val()+']');
+		$('input[name^="responses"]', row).attr('name', 'responses['+$(this).val()+']');
+	});
+	
 	$('.regex-applet .action.add').live('click', function(event) {
 		event.preventDefault();
 		var row = $(this).closest('tr');

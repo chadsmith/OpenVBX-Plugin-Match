@@ -33,16 +33,16 @@ $responses = (array) AppletInstance::getValue('responses[]');
 				</tr>
 			</tfoot>
 			<tbody>
-				<?php foreach($keys as $id => $key): ?>
+				<?php foreach($keys as $i => $key): ?>
 				<tr>
 					<td>
 						<fieldset class="vbx-input-container">
-							<input class="keypress small" type="text" name="keys[]" value="<?php echo $key ?>" autocomplete="off" />
+							<input class="keypress small" type="text" name="keys[<?php echo $key; ?>]" value="<?php echo $key ?>" autocomplete="off" />
 						</fieldset>
 					</td>
 					<td>then</td>
 					<td>
-						<?php echo AppletUI::dropZone('responses['.($id).']', 'Drop applet here'); ?>
+						<?php echo AppletUI::dropZone('responses[' . $i . ']', 'Drop applet here'); ?>
 					</td>
 					<td>
 						<a href="" class="add action"><span class="replace">Add</span></a> <a href="" class="remove action"><span class="replace">Remove</span></a>
