@@ -7,11 +7,11 @@ $keys = (array) AppletInstance::getValue('keys[]');
 $responses = (array) AppletInstance::getDropZoneUrl('responses[]');
 $menu_items = AppletInstance::assocKeyValueCombine($keys, $responses, 'strtolower');
 
-$response = new Response();
+$response = new TwimlResponse;
 
 if(array_key_exists($body, $menu_items) && !empty($menu_items[$body]))
-	$response->addRedirect($menu_items[$body]);
+	$response->redirect($menu_items[$body]);
 elseif(!empty($invalid_option))
-	$response->addRedirect($invalid_option);
+	$response->redirect($invalid_option);
 
-$response->Respond();
+$response->respond();

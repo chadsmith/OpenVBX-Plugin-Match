@@ -6,7 +6,7 @@ $responses = (array) AppletInstance::getDropZoneUrl('responses[]');
 $menu_items = AppletInstance::assocKeyValueCombine($keys, $responses);
 $next = AppletInstance::getDropZoneUrl('invalid-option');
 
-$response = new Response();
+$response = new TwimlResponse;
 
 foreach($menu_items as $regex => $redirect)
 	if(!empty($regex) && preg_match("/" . $regex . "/i", $body)) {
@@ -15,6 +15,6 @@ foreach($menu_items as $regex => $redirect)
 	}
 
 if(!empty($next))
-	$response->addRedirect($next);
+	$response->redirect($next);
 
-$response->Respond();
+$response->respond();
